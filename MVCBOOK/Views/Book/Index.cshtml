@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVCBOOK.Models.BookViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3 style="text-align:center">
+        @Html.ActionLink("Add New Book", "AddNewBook", "Book")
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        @Html.ActionLink("Search Book", "SearchBook", "Book")
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+
+    </h3>
+    <br />
+    <table class="table" border="1" width="100%">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BookPrice)
+            </th>
+            <th>Operations</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookPrice)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.BookId })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

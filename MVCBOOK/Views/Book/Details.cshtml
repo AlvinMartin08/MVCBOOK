@@ -1,0 +1,61 @@
+﻿@model MVCBOOK.Models.Book
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+
+        <h4>Book</h4>
+        <hr />
+
+
+        <table class="table" border="1" width="100%">
+            <tr>
+
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Book Author</th>
+                <th>Book Price</th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.BookId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.BookName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.BookAuthor)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.BookPrice)
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="4">
+
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.BookId }) |
+                    @Html.ActionLink("Edit", "Modify", new { id = Model.BookId }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <p>
+
+    </p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MVCBOOK.Models.Book>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchBook</title>
+</head>
+<body>
+    <h3 style="text-align:center">
+        @Html.ActionLink("Add New Book", "AddNewBook", "Book")
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        @Html.ActionLink("Search Book", "SearchBook", "Book")
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+    </h3>
+    <br />
+    <form name="f1" method="post">
+        <p style="text-align:center">
+            BookName / Author :
+            <input type="text" name="txtSearch" />
+            <input type="submit" value="Search" />
+        </p>
+    </form>
+
+    <hr />
+    @if (Model != null)
+    {
+        <table class="table" border="1" width="100%">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookAuthor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookPrice)
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookAuthor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookPrice)
+                    </td>
+
+                </tr>
+            }
+        </table>
+    }
+
+</body>
+</html>
+
